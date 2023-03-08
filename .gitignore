@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+OOPLab6T/tempCodeRunnerFile.cpp
+OOPLab6T/*.exe
+test.*
+.vscode/settings.json
+.vscode/tasks.json
