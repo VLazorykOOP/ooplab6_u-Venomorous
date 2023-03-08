@@ -1,25 +1,28 @@
 ﻿#include "Lab6Example.h"
 #include <iostream>
-namespace SpaceExample1 {
-    ///Задача. Створити дві ієрархії класів без віртуального та з віртуальним спадкуванням, 
-    // з елементами даних класів у кожному класі. Схема успадкування на рисунку за варіантами. 
-    // Створити об’єкти похідних класів з віртуальним та без віртуального успадкуванням. 
+namespace SpaceExample1
+{
+    /// Задача. Створити дві ієрархії класів без віртуального та з віртуальним спадкуванням,
+    // з елементами даних класів у кожному класі. Схема успадкування на рисунку за варіантами.
+    // Створити об’єкти похідних класів з віртуальним та без віртуального успадкуванням.
     // Вивести розміри об’єктів даних класів.
     ///
     class Base
     {
     protected:
         int dat;
-        double a[5] = { 10,1,7,1,9 };
+        double a[5] = {10, 1, 7, 1, 9};
+
     public:
         Base() : dat(1) {}
         Base(int d) : dat(d) {}
     };
-  
+
     class D1 : protected Base
     {
     protected:
         int d1;
+
     public:
         D1() : d1(1) {}
         D1(int d) : d1(d) {}
@@ -30,6 +33,7 @@ namespace SpaceExample1 {
     {
     protected:
         double d2;
+
     public:
         D2() : d2(1) {}
         D2(int d) : d2(d) {}
@@ -40,6 +44,7 @@ namespace SpaceExample1 {
     {
     protected:
         double dt;
+
     public:
         D12() : dt(1) {}
         D12(int d) : dt(d) {}
@@ -50,6 +55,7 @@ namespace SpaceExample1 {
     {
     protected:
         double dt;
+
     public:
         R() : dt(1) {}
         R(int d) : dt(d) {}
@@ -58,12 +64,12 @@ namespace SpaceExample1 {
         {
             std::cout << "dat =? Error C2385 ambiguous access level dat " << std::endl;
             /// << dat << std::endl;
-          //  std::cout << "B12VV::D1V::Base::dat =  " << D12::D1::Base::dat << std::endl;
-           // std::cout << "B12VV::D1V::Base::dat =  " << Base::dat << std::endl;
-      //      std::cout << "B12VV::D1V::Base::dat =  " << D12::D2::Base::dat << std::endl;
+            //  std::cout << "B12VV::D1V::Base::dat =  " << D12::D1::Base::dat << std::endl;
+            // std::cout << "B12VV::D1V::Base::dat =  " << Base::dat << std::endl;
+            //      std::cout << "B12VV::D1V::Base::dat =  " << D12::D2::Base::dat << std::endl;
         }
     };
-    
+
     //
     //  virtual
     //
@@ -71,6 +77,7 @@ namespace SpaceExample1 {
     {
     protected:
         int d1;
+
     public:
         D1V() : d1(1) {}
         D1V(int d) : d1(d) {}
@@ -81,6 +88,7 @@ namespace SpaceExample1 {
     {
     protected:
         double d2;
+
     public:
         D2V() : d2(1) {}
         D2V(int d) : d2(d) {}
@@ -91,6 +99,7 @@ namespace SpaceExample1 {
     {
     protected:
         double dt;
+
     public:
         D12VV() : dt(1) {}
         D12VV(int d) : dt(d) {}
@@ -101,11 +110,12 @@ namespace SpaceExample1 {
     {
     protected:
         double dt;
+
     public:
         RV3() : dt(1) {}
         RV3(int d) : dt(d) {}
         RV3(int a, int b, int c, double d, int e) : D12VV(a, b, c, d, e), Base::Base(a + 1),
-            dt(e + 1.0) {}
+                                                    dt(e + 1.0) {}
         void showDat()
         {
             std::cout << "  dat =  " << dat << std::endl;
@@ -135,9 +145,9 @@ namespace SpaceExample1 {
         std::cout << "Size for RV3 " << sizeof(RV3) << std::endl;
 
         std::cout << "Size for object class R " << sizeof(R) << " or  "
-            << sizeof(a) << " or  " << sizeof(b) << std::endl;
+                  << sizeof(a) << " or  " << sizeof(b) << std::endl;
         std::cout << "Size for object class RV3 " << sizeof(RV3) << " or  "
-            << sizeof(av) << " or  " << sizeof(bv) << std::endl;
+                  << sizeof(av) << " or  " << sizeof(bv) << std::endl;
         b.showDat();
         bv.showDat();
         return 0;
