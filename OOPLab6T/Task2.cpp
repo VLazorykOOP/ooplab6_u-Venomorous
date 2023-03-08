@@ -1,5 +1,3 @@
-// Create an abstract function class with a virtual function to calculate the value with the x coordinate. Create derived classes: line, ellipse, hyperbola with their functions for calculating the value by the x coordinate. Equation of a straight line: y=ax+b, ellipse, hyperbola
-
 #include <iostream>
 #include <cmath>
 
